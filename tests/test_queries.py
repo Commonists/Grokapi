@@ -32,5 +32,17 @@ class TestGrok(unittest.TestCase):
             grok._make_url_latest('France', 42)
 
 
+class TestGrokOnline(unittest.TestCase):
+
+    def test_get_latest(self):
+        grok = grokapi.queries.Grok('fr')
+        result = grok.get_latest('France', 90)
+        self.assertIn(u'month', result)
+        self.assertIn(u'rank', result)
+        self.assertIn(u'daily_views', result)
+        self.assertEquals(result[u'month'], u'latest90')
+        self.assertIsInstance(result[u'rank'], int)
+        self.assertIsInstance(result[u'daily_views'], dict)
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import requests
+
+
 BASE_URL = "http://stats.grok.se/json/"
 
 
@@ -24,3 +27,15 @@ class Grok(object):
             raise ValueError("Expected 30, 60 or 90 instead of %s" % (latest))
 
         return BASE_URL + "{0:s}/latest{1:d}/{2:s}".format(self.site, latest, page)
+
+    def get_latest(self, page, latest):
+        """Return amount of views from the getlatest days.
+
+        Args:
+            page (wikipage): article on which we are querying stats.
+            latest (int): amount of days we are going to fetch
+                values must be 30, 60, or 90
+        """
+        url = self._make_url_latest(page, latest)
+        result = requests.get(url).json()
+        return result
