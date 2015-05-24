@@ -1,0 +1,4 @@
+doc-warnings: no
+test-warnings: no
+ignore-paths:
+    - docs
