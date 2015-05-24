@@ -13,23 +13,23 @@ class TestGrok(unittest.TestCase):
 
     def test_make_url(self):
         """Test _make_url()."""
-        grok = grokapi.queries.Grok('France', 'fr')
-        result = grok._make_url(2013, 01)
+        grok = grokapi.queries.Grok('fr')
+        result = grok._make_url('France', 2013, 01)
         expected = 'http://stats.grok.se/json/fr/201301/France'
         self.assertEqual(result, expected)
 
     def test_make_url_latest(self):
         """test make_url_latest()."""
-        grok = grokapi.queries.Grok('France', 'fr')
-        result = grok._make_url_latest(90)
+        grok = grokapi.queries.Grok('fr')
+        result = grok._make_url_latest('France', 90)
         expected = 'http://stats.grok.se/json/fr/latest90/France'
         self.assertEqual(result, expected)
 
     def test_make_url_latest_with_wrong_value(self):
         """test make_url_latest() with a wrong value should raise a ValueError Exception."""
-        grok = grokapi.queries.Grok('France', 'fr')
+        grok = grokapi.queries.Grok('fr')
         with self.assertRaises(ValueError):
-            grok._make_url_latest(42)
+            grok._make_url_latest('France', 42)
 
 
 if __name__ == '__main__':
