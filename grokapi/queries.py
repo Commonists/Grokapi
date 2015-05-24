@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-class Grok:
+class Grok(object):
 
     """stats.grok.se article statistics."""
 
