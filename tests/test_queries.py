@@ -34,9 +34,9 @@ class TestGrok(unittest.TestCase):
 
 class TestGrokOnline(unittest.TestCase):
 
-    def test_get_latest(self):
+    def test_get_latest_views(self):
         grok = grokapi.queries.Grok('fr')
-        result = grok.get_latest('France', 90)
+        result = grok.get_latest_views('France', 90)
         self.assertIn(u'month', result)
         self.assertIn(u'rank', result)
         self.assertIn(u'daily_views', result)

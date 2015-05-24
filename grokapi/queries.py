@@ -28,7 +28,7 @@ class Grok(object):
 
         return BASE_URL + "{0:s}/latest{1:d}/{2:s}".format(self.site, latest, page)
 
-    def get_latest(self, page, latest):
+    def get_latest_views(self, page, latest):
         """Return amount of views from the getlatest days.
 
         Args:
