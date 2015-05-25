@@ -41,6 +41,7 @@ class Grok(object):
         return result
 
     def get_views_for_month(self, page, year, month):
+        """Return the monthly views of a given article."""
         url = self._make_url(page, year, month)
         result = requests.get(url).json()
         return result
