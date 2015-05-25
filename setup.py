@@ -17,6 +17,11 @@ except ImportError:
 with open('requirements.txt') as requirements_file:
     requirements = list(requirements_file.readlines())
 
+entry_points = {
+    'console_scripts': [
+        'grokapi = grokapi.cli:main',
+        ]
+    }
 
 classifiers = [
     'Development Status :: 4 - Beta',
@@ -39,6 +44,7 @@ setup(
     long_description=open('README.md').read(),
     license='MIT',
     packages=packages,
+    entry_points=entry_points,
     install_requires=requirements,
     classifiers=classifiers
 )
