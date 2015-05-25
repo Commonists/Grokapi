@@ -35,7 +35,7 @@ setup(
     author='Commonists',
     author_email='ps.huard@gmail.com',
     url='http://github.com/Commonists/Grokapi',
-    description='Media Collection database for MediaWiki',
+    description='A thin client to query Wikimedia traffic statistics from stats.grok.se',
     long_description=open('README.md').read(),
     license='MIT',
     packages=packages,
