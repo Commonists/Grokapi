@@ -44,5 +44,16 @@ class TestGrokOnline(unittest.TestCase):
         self.assertIsInstance(result[u'rank'], int)
         self.assertIsInstance(result[u'daily_views'], dict)
 
+    def test_get_views_for_month(self):
+        grok = grokapi.queries.Grok('fr')
+        title = 'France'
+        result = grok.get_views_for_month(title, 2015, 1)
+        self.assertIn(u'project', result)
+        self.assertIn(u'title', result)
+        self.assertEquals(result[u'title'], title)
+        self.assertIn(u'daily_views', result)
+        self.assertIsInstance(result[u'daily_views'], dict)
+
+
 if __name__ == '__main__':
     unittest.main()

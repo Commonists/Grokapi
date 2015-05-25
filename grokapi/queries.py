@@ -39,3 +39,8 @@ class Grok(object):
         url = self._make_url_latest(page, latest)
         result = requests.get(url).json()
         return result
+
+    def get_views_for_month(self, page, year, month):
+        url = self._make_url(page, year, month)
+        result = requests.get(url).json()
+        return result
