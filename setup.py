@@ -35,7 +35,7 @@ classifiers = [
 packages = ['grokapi']
 
 setup(
-    name='MediaCollectionDB',
+    name='Grokapi',
     version=version,
     author='Commonists',
     author_email='ps.huard@gmail.com',
