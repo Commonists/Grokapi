@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import sys
 from queries import Grok
 
 
@@ -10,8 +10,7 @@ def print_monthly_views(site, pages, year, month):
         print result['daily_views']
 
 
-def main():
-    """ main script. """
+def _make_parser():
     from argparse import ArgumentParser
     description = 'Extract traffic statistics of Wikipedia articles.'
     parser = ArgumentParser(description=description)
@@ -34,8 +33,19 @@ def main():
     parser.add_argument("page", nargs='*',
                         metavar="PAGE",
                         help='A list of pages')
-    args = parser.parse_args()
+    return parser
+
+
+def _parse_args(args):
+    parser = _make_parser()
+    return parser.parse_args(args)
+
+
+def main():
+    """Main entry-point."""
+    args = _parse_args(sys.argv)
     print_monthly_views(args.lang, args.page, args.year, args.month)
+
 
 if __name__ == '__main__':
     main()
