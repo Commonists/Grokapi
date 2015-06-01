@@ -19,19 +19,17 @@ def main():
                         type=str,
                         dest="lang",
                         default="en",
-                        required=True,
+                        required=False,
                         help="Language code for Wikipedia")
     parser.add_argument("-y", "--year",
                         type=int,
                         dest="year",
-                        default="en",
-                        required=True,
+                        required=False,
                         help="Year")
     parser.add_argument("-m", "--month",
                         type=int,
                         dest="month",
-                        default="en",
-                        required=True,
+                        required=False,
                         help="Month")
     parser.add_argument("page", nargs='*',
                         metavar="PAGE",
